@@ -98,7 +98,7 @@ output_LBFGS_like_first.png
 
 ## 📂 Project Structure
 
-project/
+CODECRAFT_GA_05/
 │── style_transfer.py
 │── content_image.png
 │── style_image.png
