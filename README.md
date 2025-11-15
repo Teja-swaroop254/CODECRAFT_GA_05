@@ -58,5 +58,37 @@ Instead of training a model, NST directly optimizes the **pixels of the target i
 
 ###### <img width="1024" height="1536" alt="ChatGPT Image Nov 15, 2025, 11_30_55 PM" src="https://github.com/user-attachments/assets/e02dc1fa-d586-4b77-9dd6-9f70891a28a0" />
 
+---
+
+## 📌 Features
+- Neural Style Transfer implemented using PyTorch and VGG-19  
+- Combines content and style images to generate stylized output  
+- LBFGS optimizer for high-quality results  
+- Extracts multi-layer content and style features  
+- Gram matrix used to capture texture and style information  
+- Displays content, style, and output images side by side  
+- GPU acceleration supported (CUDA auto-detected)  
+- Clean, well-structured, and internship-ready code  
+
+---
+
+## 🔧 Installation
+Install required packages:
+
+```bash
+pip install torch torchvision pillow matplotlib
+
+---
+
+## 🚀 Usage
+
+**Update the paths in the code:**
+```python
+content_img = load_image("/path/to/content.png")
+style_img   = load_image("/path/to/style.png")
+
+
+
+
 
 
