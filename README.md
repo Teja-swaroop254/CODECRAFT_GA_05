@@ -140,7 +140,58 @@ CODECRAFT_GA_05/
 **6. Output Generation**  
 - The target tensor is denormalized  
 - Converted back to an image  
-- Saved and displayed along with content and style images  
+- Saved and displayed along with content and style images
+
+ ---
+
+ ## 🎛 Hyperparameter Tuning
+
+**content_weight**  
+Controls how much of the original content structure is preserved.  
+Higher value → more content, less style.
+
+**style_weight**  
+Controls how strongly the artistic style is applied.  
+Higher value → more texture, colors, and style patterns.
+
+**max_size**  
+Determines the resolution of the input image.  
+Higher value → sharper output but slower and uses more memory.
+
+**Per-layer style weights**  
+You can adjust how much each VGG layer contributes to the style:
+```python
+style_weights = {
+    "conv_1": 1.0,
+    "conv_2": 0.75,
+    "conv_3": 0.2,
+    "conv_4": 0.2,
+    "conv_5": 0.2
+}
+```
+---
+
+## 🐞 Troubleshooting
+
+**Style not strong enough?**  
+Increase the style weight:  
+`style_weight = 5e2`
+
+**CUDA out of memory?**  
+Reduce the input image size:  
+`max_size = 256`
+
+**Training slow?**  
+- Use smaller input images  
+- Ensure GPU (CUDA) is enabled  
+- Switch to CPU only if GPU is unavailable  
+
+---
+
+## 📚 References
+
+- Deep Learning – Neural Style Transfer with TensorFlow. GeeksforGeeks.  
+  https://www.geeksforgeeks.org/deep-learning/neural-style-transfer-with-tensorflow/
 
 
 
