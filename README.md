@@ -52,4 +52,11 @@ Extract multiple layers (`conv_1` to `conv_5`) and compute **Gram matrices**, wh
 ### 3️⃣ Pixel Optimization  
 Instead of training a model, NST directly optimizes the **pixels of the target image**:
 
+---
+
+# Architecture Diagram
+
+# <img width="1024" height="1536" alt="ChatGPT Image Nov 15, 2025, 11_30_55 PM" src="https://github.com/user-attachments/assets/e02dc1fa-d586-4b77-9dd6-9f70891a28a0" />
+
+
 
