@@ -94,6 +94,18 @@ python style_transfer.py
 **Output will be saved as:**
 output_LBFGS_like_first.png
 
+---
+
+## 📂 Project Structure
+
+project/
+│── style_transfer.py
+│── content_image.png
+│── style_image.png
+│── output_LBFGS_like_first.png
+│── README.md
+
+---
 
 
 
