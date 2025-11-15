@@ -87,6 +87,12 @@ pip install torch torchvision pillow matplotlib
 content_img = load_image("/path/to/content.png")
 style_img   = load_image("/path/to/style.png")
 
+**Run the script:**
+```bash
+python style_transfer.py
+
+**Output will be saved as:**
+output_LBFGS_like_first.png
 
 
 
