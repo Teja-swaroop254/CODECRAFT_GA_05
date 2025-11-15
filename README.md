@@ -107,6 +107,37 @@ CODECRAFT_GA_05/
 
 ---
 
+## 🧩 Code Explanation
+
+**1. Image Preprocessing**  
+- Loads content and style images  
+- Resizes them  
+- Converts to tensors  
+- Normalizes using ImageNet mean and standard deviation  
+
+**2. VGG-19 Model Setup**  
+- Loads pretrained VGG-19 in evaluation mode  
+- Replaces in-place ReLU layers to avoid gradient issues  
+- Selects specific layers for content and style extraction  
+
+**3. Feature Extraction**  
+- Content features are taken from `conv_4`  
+- Style features are taken from layers `conv_1` to `conv_5`  
+- Gram matrices are computed for style representation  
+
+**4. Loss Functions**  
+- **Content Loss:** Difference between content and target features  
+- **Style Loss:** Difference between Gram matrices of style and target features  
+- Weighted combination creates the final loss  
+
+**5. Optimization (LBFGS)**  
+- The target image (initialized as the content image) is optimized  
+- LBFGS minimizes the total loss for high-quality stylization  
+
+**6. Output Generation**  
+- The target tensor is denormalized  
+- Converted back to an image  
+- Saved and displayed along with content and style images  
 
 
 
