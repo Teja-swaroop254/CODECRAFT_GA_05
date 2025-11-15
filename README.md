@@ -56,7 +56,58 @@ Instead of training a model, NST directly optimizes the **pixels of the target i
 
 # Architecture Diagram
 
-###### <img width="1024" height="1536" alt="ChatGPT Image Nov 15, 2025, 11_30_55 PM" src="https://github.com/user-attachments/assets/e02dc1fa-d586-4b77-9dd6-9f70891a28a0" />
+                      ┌──────────────────────────┐
+                      │        Input Images      │
+                      │  • Content Image         │
+                      │  • Style Image           │
+                      └────────────┬─────────────┘
+                                   │
+                                   ▼
+                 ┌────────────────────────────────────┐
+                 │      Preprocessing (Transforms)    │
+                 │  • Resize                          │
+                 │  • Convert to Tensor               │
+                 │  • Normalize (ImageNet stats)      │
+                 └───────────────┬────────────────────┘
+                                 │
+                                 ▼
+            ┌────────────────────────────────────────────────┐
+            │                VGG-19 Network                  │
+            │           (Pretrained, Eval Mode)              │
+            │                                                │
+            │  Style Features → conv1, conv2, conv3, conv4, conv5
+            │  Content Features → conv4                      │
+            └──────────────────┬─────────────────────────────┘
+                               │
+                               ▼
+   ┌──────────────────────────────────────────────────────────────┐
+   │                   Feature Representations                    │
+   │  • Content = Feature map from conv4                          │
+   │  • Style = Gram matrices from conv1–conv5                    │
+   └─────────────────────────┬────────────────────────────────────┘
+                             │
+                             ▼
+            ┌──────────────────────────────────────────┐
+            │        Initialize Target Image           │
+            │     (Start from content image copy)      │
+            └──────────────────────┬───────────────────┘
+                                   │
+                                   ▼
+                     ┌───────────────────────────────┐
+                     │     Optimization (LBFGS)      │
+                     │  1. Forward pass              │
+                     │  2. Compute content loss      │
+                     │  3. Compute style loss        │
+                     │  4. Combine losses            │
+                     │  5. Update target image       │
+                     └───────────────────────────────┘
+                                   │
+                                   ▼
+                       ┌──────────────────────────┐
+                       │       Output Image       │
+                       │ (Stylized Combination)   │
+                       └──────────────────────────┘
+
 
 ---
 
