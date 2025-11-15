@@ -55,6 +55,7 @@ Instead of training a model, NST directly optimizes the **pixels of the target i
 ---
 
 # Architecture Diagram
+```
 
                       ┌──────────────────────────┐
                       │        Input Images      │
@@ -107,6 +108,7 @@ Instead of training a model, NST directly optimizes the **pixels of the target i
                        │       Output Image       │
                        │ (Stylized Combination)   │
                        └──────────────────────────┘
+```
 
 
 ---
