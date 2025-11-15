@@ -75,15 +75,16 @@ Instead of training a model, NST directly optimizes the **pixels of the target i
 ## 🔧 Installation
 Install required packages:
 
-
--pip install torch torchvision pillow matplotlib
+```
+pip install torch torchvision pillow matplotlib
+```
 
 ---
 
 ## 🚀 Usage
 
 **Update the paths in the code:**
-python
+```python
 content_img = load_image("/path/to/content.png")
 style_img   = load_image("/path/to/style.png")
 
@@ -92,6 +93,7 @@ style_img   = load_image("/path/to/style.png")
 python style_transfer.py
 
 **Output will be saved as:**
+
 output_LBFGS_like_first.png
 
 ---
@@ -106,6 +108,7 @@ CODECRAFT_GA_05/
 │── README.md
 
 ---
+```
 
 ## 🧩 Code Explanation
 
